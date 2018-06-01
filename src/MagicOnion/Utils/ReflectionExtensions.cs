@@ -62,18 +62,20 @@ internal static class ReflectionExtensions
     public static T GetCustomAttribute<T>(this Type type, bool inherit)
         where T : Attribute
     {
-        return type.GetTypeInfo().GetCustomAttribute<T>(inherit);
+        return type.GetCustomAttribute(typeof(T), inherit) as T;
+        //return type.GetTypeInfo().GetCustomAttribute<T>(inherit);
     }
 
     public static IEnumerable<T> GetCustomAttributes<T>(this Type type, bool inherit)
         where T : Attribute
     {
-        return type.GetTypeInfo().GetCustomAttributes<T>(inherit);
+        return type.GetCustomAttributes(typeof(T), inherit).Select(s => s as T).Where(p => p != null);
+        //return type.GetTypeInfo().GetCustomAttributes<T>(inherit);
     }
 
     public static IEnumerable<Attribute> GetCustomAttributes(this Type type, bool inherit)
     {
-        return type.GetTypeInfo().GetCustomAttributes(inherit);
+        return type.GetTypeInfo().GetCustomAttributes(inherit).Select(s => s as Attribute);
     }
 
     public static bool IsAssignableFrom(this Type type, Type c)

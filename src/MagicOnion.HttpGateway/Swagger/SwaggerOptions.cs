@@ -17,6 +17,11 @@ namespace MagicOnion.HttpGateway.Swagger
         public string JsonName { get; set; }
         public string[] ForceSchemas { get; set; }
 
+        public SwaggerOptions() : this(default, default, "/")
+        {
+
+        }
+
         public SwaggerOptions(string title, string description, string apiBasePath)
         {
             ApiBasePath = apiBasePath;

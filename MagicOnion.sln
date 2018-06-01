@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sandbox", "sandbox", "{7682
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicOnion.Tests", "tests\MagicOnion.Tests\MagicOnion.Tests.csproj", "{879C8453-8995-4D9A-964F-2FEA2B84FF1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicOnion", "src\MagicOnion\MagicOnion.csproj", "{C79CE0BF-ED4C-47BE-822E-E82CF83FC68A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MagicOnion", "src\MagicOnion\MagicOnion.csproj", "{C79CE0BF-ED4C-47BE-822E-E82CF83FC68A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.ConsoleClient", "sandbox\Sandbox.ConsoleClient\Sandbox.ConsoleClient.csproj", "{59C4CF2E-964B-460A-BCCA-33F434DD11EF}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{7F61607D-5772-4E41-9D37-04E6AE7E47BA}"
 	ProjectSection(SolutionItems) = preProject
 		nuget\MagicOnion.HttpGateway.nuspec = nuget\MagicOnion.HttpGateway.nuspec
+		nuget\MagicOnion.Extensions.nuspec = nuget\MagicOnion.Extensions.nuspec
+		nuget\MagicOnion.HttpGateway.Extensions.nuspec = nuget\MagicOnion.HttpGateway.Extensions.nuspec
 		nuget\MagicOnion.nuspec = nuget\MagicOnion.nuspec
 		nuget\pack.bat = nuget\pack.bat
 		nuget\push.bat = nuget\push.bat
@@ -29,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{7F61607D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicOnion.CodeGenerator", "src\MagicOnion.CodeGenerator\MagicOnion.CodeGenerator.csproj", "{9633B452-A984-46A6-9A92-B6291561BA09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicOnion.HttpGateway", "src\MagicOnion.HttpGateway\MagicOnion.HttpGateway.csproj", "{FCE03661-803E-4629-944F-45DB6B444320}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MagicOnion.HttpGateway", "src\MagicOnion.HttpGateway\MagicOnion.HttpGateway.csproj", "{FCE03661-803E-4629-944F-45DB6B444320}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedProjectLibrary", "sandbox\SharedProjectLibrary\SharedProjectLibrary.shproj", "{5526FA31-4F38-4FF7-96EE-A73BF495E1EE}"
 EndProject
@@ -37,9 +39,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetStandardShare", "sandbox
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.ConsoleServer2", "sandbox\Sandbox.ConsoleServer2\Sandbox.ConsoleServer2.csproj", "{7CF23E57-381B-428D-B44A-D5328A71414B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicOnion.Tests.NetCore", "tests\MagicOnion.Tests.NetCore\MagicOnion.Tests.NetCore.csproj", "{A0E9C1EA-6E7F-4CF1-81D2-21EAC6ACAE67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MagicOnion.Tests.NetCore", "tests\MagicOnion.Tests.NetCore\MagicOnion.Tests.NetCore.csproj", "{A0E9C1EA-6E7F-4CF1-81D2-21EAC6ACAE67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.NetCoreApp", "sandbox\Sandbox.NetCoreApp\Sandbox.NetCoreApp.csproj", "{C2ADB989-07E8-46AC-8495-AE496F69C5C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.NetCoreApp", "sandbox\Sandbox.NetCoreApp\Sandbox.NetCoreApp.csproj", "{C2ADB989-07E8-46AC-8495-AE496F69C5C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MagicOnion.Extensions", "src\MagicOnion.Extensions\MagicOnion.Extensions.csproj", "{F796AEC9-CE88-4F71-B6D0-50D10D0F852F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MagicOnion.HttpGateway.Extensions", "src\MagicOnion.HttpGateway.Extensions\MagicOnion.HttpGateway.Extensions.csproj", "{F61B87F4-7868-46D4-ADC8-C9881DB255A8}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -95,6 +101,14 @@ Global
 		{C2ADB989-07E8-46AC-8495-AE496F69C5C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2ADB989-07E8-46AC-8495-AE496F69C5C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2ADB989-07E8-46AC-8495-AE496F69C5C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F796AEC9-CE88-4F71-B6D0-50D10D0F852F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F796AEC9-CE88-4F71-B6D0-50D10D0F852F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F796AEC9-CE88-4F71-B6D0-50D10D0F852F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F796AEC9-CE88-4F71-B6D0-50D10D0F852F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F61B87F4-7868-46D4-ADC8-C9881DB255A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F61B87F4-7868-46D4-ADC8-C9881DB255A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F61B87F4-7868-46D4-ADC8-C9881DB255A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F61B87F4-7868-46D4-ADC8-C9881DB255A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,5 +126,10 @@ Global
 		{7CF23E57-381B-428D-B44A-D5328A71414B} = {7682EFFC-681C-4DCC-B5E7-D8449E42DAC9}
 		{A0E9C1EA-6E7F-4CF1-81D2-21EAC6ACAE67} = {7ACC27E8-8FBE-4807-B91F-B89AF3CFF7E0}
 		{C2ADB989-07E8-46AC-8495-AE496F69C5C0} = {7682EFFC-681C-4DCC-B5E7-D8449E42DAC9}
+		{F796AEC9-CE88-4F71-B6D0-50D10D0F852F} = {1987061F-8970-4018-8D58-6932961C9EB4}
+		{F61B87F4-7868-46D4-ADC8-C9881DB255A8} = {1987061F-8970-4018-8D58-6932961C9EB4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7548004-2250-42F9-A8EA-5A31B446835E}
 	EndGlobalSection
 EndGlobal

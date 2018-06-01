@@ -36,6 +36,14 @@ namespace MagicOnion.Server
         public MagicOnionFilterAttribute[] GlobalFilters { get; set; }
 
         /// <summary>
+        /// Parameterless ctor
+        /// </summary>
+        public MagicOnionOptions() : this(false)
+        {
+
+        }
+
+        /// <summary>
         /// Constructor can handle only error detail. If you want to set the other options, you can use object initializer. 
         /// </summary>
         /// <param name="isReturnExceptionStackTraceInErrorDetail">true, when method body throws exception send to client exception.ToString message. It is useful for debugging. Default is false.</param>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>MagicOnion.Extensions</id>
+    <version>0.5.2.1</version>
+    <title>MagicOnion.Extensions</title>
+    <authors>Sim Tsai</authors>
+    <owners>neuecc; Sim Tsai</owners>
+    <projectUrl>https://github.com/simhgd/MagicOnion</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>gRPC based HTTP2 RPC Streaming Framework for .NET, .NET Core and Unity.</description>
+    <releaseNotes>update dependency.</releaseNotes>
+    <tags>gRPC, HTTP2</tags>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Microsoft.AspNetCore.Http.Abstractions" version="2.1.0" />
+        <dependency id="Microsoft.Extensions.DependencyInjection.Abstractions" version="2.1.0" />
+        <dependency id="Microsoft.Extensions.Options" version="2.1.0" />
+        <dependency id="MagicOnion" version="0.5.2.1" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\src\MagicOnion.Extensions\bin\Release\netstandard2.0\MagicOnion.Extensions.dll" target="lib\netstandard2.0" />
+    <!--<file src="..\src\MagicOnion.Extensions\bin\Release\netstandard2.0\MagicOnion.Extensions.xml" target="lib\netstandard2.0" />-->
+  </files>
+</package>
