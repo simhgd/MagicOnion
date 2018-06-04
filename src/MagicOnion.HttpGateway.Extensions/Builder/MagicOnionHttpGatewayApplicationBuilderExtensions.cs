@@ -17,25 +17,23 @@ namespace MagicOnion.HttpGateway
             {
                 var sp = appScope.ServiceProvider;
 
-                var magicOnionServerOptions = sp.GetService<IOptions<MagicOnionServerOptions>>();
                 var magicOnionServiceDefinitionDIWrapper = sp.GetService<MagicOnionServiceDefinitionDIWrapper>();
-
-                if (magicOnionServerOptions == null || magicOnionServerOptions.Value == null)
+                if (magicOnionServiceDefinitionDIWrapper?.MagicOnionServiceDefinition == null)
                 {
-                    throw new ArgumentException(nameof(MagicOnionServerOptions));
+                    throw new InvalidOperationException("Unable to find the required services. Please add all the required services by calling 'IServiceCollection.AddMagicOnionServer' inside the call to 'ConfigureServices(...)' in the application startup code.");
                 }
 
-                if (magicOnionServiceDefinitionDIWrapper == null || magicOnionServiceDefinitionDIWrapper.MagicOnionServiceDefinition == null)
+                var grpcOptions = sp.GetService<IOptions<GrpcOptions>>();
+                if (grpcOptions?.Value == null)
                 {
-                    throw new ArgumentException(nameof(MagicOnionServiceDefinitionDIWrapper));
+                    throw new ArgumentException(nameof(GrpcOptions));
                 }
 
-                var channelCredentials = magicOnionServerOptions.Value.Credentials == ServerCredentials.Insecure ? ChannelCredentials.Insecure : ChannelCredentials.Create(null, null);
-
-                var channel = new Channel(
-                    host: magicOnionServerOptions.Value.Host,
-                    port: magicOnionServerOptions.Value.Port,
-                    credentials: channelCredentials);
+                var channel = new Channel(grpcOptions.Value.Host,
+                    grpcOptions.Value.Port,
+                    grpcOptions.Value.InsecureCredentials
+                        ? ChannelCredentials.Insecure
+                        : new SslCredentials(grpcOptions.Value.RootCertificates, new KeyCertificatePair(grpcOptions.Value.CertificateChain, grpcOptions.Value.PrivateKey)));
 
                 app.UseMagicOnionHttpGateway(magicOnionServiceDefinitionDIWrapper.MagicOnionServiceDefinition.MethodHandlers, channel);
             }

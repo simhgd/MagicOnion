@@ -16,18 +16,19 @@ namespace MagicOnion.HttpGateway
             {
                 var sp = appScope.ServiceProvider;
 
-                var magicOnionSwaggerOptions = sp.GetService<IOptions<SwaggerOptions>>();
                 var magicOnionServiceDefinitionDIWrapper = sp.GetService<MagicOnionServiceDefinitionDIWrapper>();
-
-                if (magicOnionSwaggerOptions == null || magicOnionSwaggerOptions.Value == null)
+                if (magicOnionServiceDefinitionDIWrapper?.MagicOnionServiceDefinition == null)
                 {
-                    throw new ArgumentException(nameof(SwaggerOptions));
+                    throw new InvalidOperationException("Unable to find the required services. Please add all the required services by calling 'IServiceCollection.AddMagicOnionServer' inside the call to 'ConfigureServices(...)' in the application startup code.");
                 }
 
-                if (magicOnionServiceDefinitionDIWrapper == null || magicOnionServiceDefinitionDIWrapper.MagicOnionServiceDefinition == null)
+                var magicOnionSwaggerOptions = sp.GetService<IOptions<SwaggerOptions>>();
+                if (magicOnionSwaggerOptions?.Value == null)
                 {
-                    throw new ArgumentException(nameof(MagicOnionServiceDefinitionDIWrapper));
+                    throw new InvalidOperationException(nameof(SwaggerOptions));
                 }
+
+                
 
                 app.UseMagicOnionSwagger(magicOnionServiceDefinitionDIWrapper.MagicOnionServiceDefinition.MethodHandlers, magicOnionSwaggerOptions.Value);
             }

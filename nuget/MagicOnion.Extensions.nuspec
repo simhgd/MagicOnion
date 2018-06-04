@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>MagicOnion.Extensions</id>
-    <version>0.5.2.1</version>
+    <version>0.5.2.2</version>
     <title>MagicOnion.Extensions</title>
     <authors>Sim Tsai</authors>
     <owners>neuecc; Sim Tsai</owners>

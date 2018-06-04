@@ -2,7 +2,7 @@
 
 namespace MagicOnion
 {
-    public class MagicOnionBuilder
+    public class MagicOnionServerBuilder
     {
         public IServiceCollection Services { internal set; get; }
     }

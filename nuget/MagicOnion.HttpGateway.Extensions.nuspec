@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>MagicOnion.HttpGateway.Extensions</id>
-    <version>0.5.2.1</version>
+    <version>0.5.2.2</version>
     <title>MagicOnion.HttpGateway.Extensions</title>
     <authors>Sim Tsai</authors>
     <owners>neuecc; Sim Tsai</owners>
@@ -16,7 +16,7 @@
         <dependency id="Microsoft.Extensions.DependencyInjection.Abstractions" version="2.1.0" />
         <dependency id="Microsoft.Extensions.Options" version="2.1.0" />
         <dependency id="MagicOnion.HttpGateway" version="0.5.2.1" />
-        <dependency id="MagicOnion.Extensions" version="0.5.2.1" />
+        <dependency id="MagicOnion.Extensions" version="0.5.2.2" />
       </group>
     </dependencies>
   </metadata>
