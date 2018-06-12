@@ -2,7 +2,7 @@
 
 namespace MagicOnion
 {
-    public class GrpcOptions
+    public abstract class GrpcOptions
     {
         public string Host { get; set; }
         public int Port { get; set; }
